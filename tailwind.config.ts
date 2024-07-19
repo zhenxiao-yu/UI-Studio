@@ -1,15 +1,18 @@
 import type { Config } from "tailwindcss";
 
 const config = {
+  // Enable dark mode based on a class
   darkMode: ["class"],
+  // Specify the paths to all of the template files
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
+  prefix: "", // No prefix by default
   theme: {
+    // Container configuration
     container: {
       center: true,
       padding: "2rem",
@@ -17,6 +20,7 @@ const config = {
         "2xl": "1400px",
       },
     },
+    // Extend default theme
     extend: {
       colors: {
         primary: {
@@ -45,6 +49,7 @@ const config = {
       },
     },
   },
+  // Include the Tailwind CSS animate plugin
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
 
