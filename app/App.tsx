@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { useMutation, useRedo, useStorage, useUndo } from "@/liveblocks.config";
 import {
-  handleCanvaseMouseMove,
+  handleCanvasMouseMove,
   handleCanvasMouseDown,
   handleCanvasMouseUp,
   handleCanvasObjectModified,
@@ -302,7 +302,7 @@ const Home = () => {
      * Event list: http://fabricjs.com/docs/fabric.Canvas.html#fire
      */
     canvas.on("mouse:move", (options) => {
-      handleCanvaseMouseMove({
+      handleCanvasMouseMove({
         options,
         canvas,
         isDrawing,
@@ -469,6 +469,7 @@ const Home = () => {
       window.removeEventListener("keydown", (e) =>
         handleKeyDown({
           e,
+          // eslint-disable-next-line react-hooks/exhaustive-deps
           canvas: fabricRef.current,
           undo,
           redo,
@@ -477,6 +478,7 @@ const Home = () => {
         })
       );
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [canvasRef]); // run this effect only once when the component mounts and the canvasRef changes
 
   // render the canvas when the canvasObjects from live storage changes
