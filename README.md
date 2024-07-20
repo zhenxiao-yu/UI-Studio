@@ -7,22 +7,22 @@ Author: ZhenXiao (Mark) Yu © 2024
 1. [Introduction](#introduction)
 2. [Tech Stack](#tech-stack)
 3. [Features](#features)
-4. [How To Run](#How to run)
+4. [How To Run](#how-to-run)
 
 ## Introduction
 
 UI Studio is a sleek, minimalist web-based application optimized for PC use and available at no cost. It is designed to replicate a collaborative user interface design environment, integrating essential features of professional design tools, including **live collaboration, real-time cursor tracking, integrated chat, commenting, and dynamic drawing capabilities**. Built with advanced technologies such as **Next.js, TypeScript, and Fabric.js**, UI Studio offers a powerful platform for delving into the complexities of real-time web applications and collaborative design workflows. Its streamlined interface ensures a fluid, interactive experience, empowering teams to work together efficiently and creatively within a virtual workspace.
 
-- - ## Tech Stack
+## Tech Stack
 
-    The application utilizes a modern technology stack to ensure high performance, scalability, and ease of development:
+The application utilizes a modern technology stack to ensure high performance, scalability, and ease of development:
 
-    - **Next.js**: A React framework that facilitates server-side rendering and static site generation, enhancing performance and SEO.
-    - **TypeScript**: A superset of JavaScript that introduces static typing, which helps catch type-related errors during development and leads to more robust and maintainable code.
-    - **Tailwind CSS**: A utility-first CSS framework that accelerates UI development with consistent and adaptable styling.
-    - **Fabric.js**: A powerful JavaScript library for working with HTML5 canvas, making it easier to develop interactive design tools.
-    - **Liveblocks**: A library that supports real-time collaboration features, including multi-user presence, cursor tracking, and shared state management.
-    - **Shadcn**: A library designed for creating accessible and highly customizable UI components.
+- **Next.js**: A React framework that facilitates server-side rendering and static site generation, enhancing performance and SEO.
+- **TypeScript**: A superset of JavaScript that introduces static typing, which helps catch type-related errors during development and leads to more robust and maintainable code.
+- **Tailwind CSS**: A utility-first CSS framework that accelerates UI development with consistent and adaptable styling.
+- **Fabric.js**: A powerful JavaScript library for working with HTML5 canvas, making it easier to develop interactive design tools.
+- **Liveblocks**: A library that supports real-time collaboration features, including multi-user presence, cursor tracking, and shared state management.
+- **Shadcn**: A library designed for creating accessible and highly customizable UI components.
 
 ## Features
 
@@ -72,7 +72,7 @@ A chronological history of actions and changes made on the canvas is maintained,
 
 The application provides comprehensive tools for managing design elements, including options for deleting, scaling, moving, clearing the canvas, and exporting the final design. These capabilities ensure complete control over the design process and facilitate the transition from concept to implementation.
 
-## How to run
+## How to Run
 
 Follow these steps to set up the project on your local machine.
 
@@ -88,8 +88,8 @@ Before starting, make sure you have the following installed:
 
 Begin by cloning the repository to your local machine:
 
-```
-bashCopy codegit clone https://github.com/JavaScript-Mastery-Pro/figma-ts.git
+```bash
+git clone https://github.com/JavaScript-Mastery-Pro/figma-ts.git
 cd figma-ts
 ```
 
@@ -97,9 +97,7 @@ cd figma-ts
 
 Next, install the necessary project dependencies:
 
-```
-bash
-Copy code
+```bash
 npm install
 ```
 
@@ -107,9 +105,7 @@ npm install
 
 Create a new file named `.env.local` in the root directory of your project and add the following line:
 
-```
-env
-Copy code
+```env
 NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY=
 ```
 
@@ -119,13 +115,10 @@ Make sure to replace the placeholder with your actual Liveblocks credentials. Yo
 
 To run the development server, use the following command:
 
-```
-bash
-Copy code
+```bash
 npm run dev
 ```
 
-You can then view the project by navigating to http://localhost:3000 in your web browser.
+You can then view the project by navigating to [http://localhost:3000](http://localhost:3000) in your web browser.
 
 ------
-
