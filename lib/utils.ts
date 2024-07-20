@@ -2,6 +2,7 @@ import jsPDF from "jspdf";
 import { twMerge } from "tailwind-merge";
 import { type ClassValue, clsx } from "clsx";
 
+// List of adjectives to be used for generating random names
 const adjectives = [
   "Happy",
   "Creative",
@@ -18,6 +19,7 @@ const adjectives = [
   "Shining",
 ];
 
+// List of animals to be used for generating random names
 const animals = [
   "Dolphin",
   "Tiger",
@@ -34,10 +36,12 @@ const animals = [
   "Crocodile",
 ];
 
+// Function to merge class names using tailwind-merge and clsx
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// Function to generate a random name using a random adjective and animal
 export function generateRandomName(): string {
   const randomAdjective =
     adjectives[Math.floor(Math.random() * adjectives.length)];
@@ -46,6 +50,7 @@ export function generateRandomName(): string {
   return `${randomAdjective} ${randomAnimal}`;
 }
 
+// Function to get shape information based on shape type
 export const getShapeInfo = (shapeType: string) => {
   switch (shapeType) {
     case "rect":
@@ -53,43 +58,36 @@ export const getShapeInfo = (shapeType: string) => {
         icon: "/assets/rectangle.svg",
         name: "Rectangle",
       };
-
     case "circle":
       return {
         icon: "/assets/circle.svg",
         name: "Circle",
       };
-
     case "triangle":
       return {
         icon: "/assets/triangle.svg",
         name: "Triangle",
       };
-
     case "line":
       return {
         icon: "/assets/line.svg",
         name: "Line",
       };
-
     case "i-text":
       return {
         icon: "/assets/text.svg",
         name: "Text",
       };
-
     case "image":
       return {
         icon: "/assets/image.svg",
         name: "Image",
       };
-
     case "freeform":
       return {
         icon: "/assets/freeform.svg",
         name: "Free Drawing",
       };
-
     default:
       return {
         icon: "/assets/rectangle.svg",
@@ -98,24 +96,25 @@ export const getShapeInfo = (shapeType: string) => {
   }
 };
 
+// Function to export the canvas content to a PDF file
 export const exportToPdf = () => {
   const canvas = document.querySelector("canvas");
 
   if (!canvas) return;
 
-  // use jspdf
+  // Create a new jsPDF instance with landscape orientation
   const doc = new jsPDF({
     orientation: "landscape",
     unit: "px",
     format: [canvas.width, canvas.height],
   });
 
-  // get the canvas data url
+  // Get the canvas data URL
   const data = canvas.toDataURL();
 
-  // add the image to the pdf
+  // Add the image to the PDF
   doc.addImage(data, "PNG", 0, 0, canvas.width, canvas.height);
 
-  // download the pdf
+  // Download the PDF
   doc.save("canvas.pdf");
 };
