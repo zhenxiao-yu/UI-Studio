@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Ensures this component is a client-side component
 
 import {
   FormEvent,
@@ -18,35 +18,37 @@ import { useMaxZIndex } from "@/lib/useMaxZIndex";
 import PinnedComposer from "./PinnedComposer";
 import NewThreadCursor from "./NewThreadCursor";
 
+// Type definition for the coordinates of the composer
 type ComposerCoords = null | { x: number; y: number };
 
+// Type definition for the props of NewThread component
 type Props = {
   children: ReactNode;
 };
 
+// NewThread component to handle the creation of new threads
 export const NewThread = ({ children }: Props) => {
-  // set state to track if we're placing a new comment or not
+  // State to track if we're placing a new comment or not
   const [creatingCommentState, setCreatingCommentState] = useState<
     "placing" | "placed" | "complete"
   >("complete");
 
   /**
-   * We're using the useCreateThread hook to create a new thread.
-   *
+   * Using the useCreateThread hook to create a new thread.
    * useCreateThread: https://liveblocks.io/docs/api-reference/liveblocks-react#useCreateThread
    */
   const createThread = useCreateThread();
 
-  // get the max z-index of a thread
+  // Get the maximum z-index of a thread
   const maxZIndex = useMaxZIndex();
 
-  // set state to track the coordinates of the composer (liveblocks comment editor)
+  // State to track the coordinates of the composer (liveblocks comment editor)
   const [composerCoords, setComposerCoords] = useState<ComposerCoords>(null);
 
-  // set state to track the last pointer event
+  // Ref to track the last pointer event
   const lastPointerEvent = useRef<PointerEvent>();
 
-  // set state to track if user is allowed to use the composer
+  // State and ref to track if the user is allowed to use the composer
   const [allowUseComposer, setAllowUseComposer] = useState(false);
   const allowComposerRef = useRef(allowUseComposer);
   allowComposerRef.current = allowUseComposer;
@@ -57,25 +59,25 @@ export const NewThread = ({ children }: Props) => {
       return;
     }
 
-    // Place a composer on the screen
+    // Function to handle placing a new comment
     const newComment = (e: MouseEvent) => {
       e.preventDefault();
 
       // If already placed, click outside to close composer
       if (creatingCommentState === "placed") {
-        // check if the click event is on/inside the composer
+        // Check if the click event is on/inside the composer
         const isClickOnComposer = ((e as any)._savedComposedPath = e
           .composedPath()
           .some((el: any) => {
             return el.classList?.contains("lb-composer-editor-actions");
           }));
 
-        // if click is inisde/on composer, don't do anything
+        // If click is inside/on composer, don't do anything
         if (isClickOnComposer) {
           return;
         }
 
-        // if click is outside composer, close composer
+        // If click is outside composer, close composer
         if (!isClickOnComposer) {
           setCreatingCommentState("complete");
           return;
@@ -122,7 +124,7 @@ export const NewThread = ({ children }: Props) => {
     }
 
     const handlePointerDown = (e: PointerEvent) => {
-      // if composer is already placed, don't do anything
+      // If composer is already placed, don't do anything
       if (allowComposerRef.current) {
         return;
       }
@@ -165,7 +167,7 @@ export const NewThread = ({ children }: Props) => {
       // Get your canvas element
       const overlayPanel = document.querySelector("#canvas");
 
-      // if there's no composer coords or last pointer event, meaning the user hasn't clicked yet, don't do anything
+      // If there's no composer coords or last pointer event, meaning the user hasn't clicked yet, don't do anything
       if (!composerCoords || !lastPointerEvent.current || !overlayPanel) {
         return;
       }
@@ -175,7 +177,7 @@ export const NewThread = ({ children }: Props) => {
       const x = composerCoords.x - left;
       const y = composerCoords.y - top;
 
-      // create a new thread with the composer coords and cursor selectors
+      // Create a new thread with the composer coords and cursor selectors
       createThread({
         body,
         metadata: {
@@ -215,10 +217,10 @@ export const NewThread = ({ children }: Props) => {
         {children}
       </Slot>
 
-      {/* if composer coords exist and we're placing a comment, render the composer */}
+      {/* If composer coords exist and we're placing a comment, render the composer */}
       {composerCoords && creatingCommentState === "placed" ? (
         /**
-         * Portal.Root is used to render the composer outside of the NewThread component to avoid z-index issuess
+         * Portal.Root is used to render the composer outside of the NewThread component to avoid z-index issues
          *
          * Portal.Root: https://www.radix-ui.com/primitives/docs/utilities/portal
          */
