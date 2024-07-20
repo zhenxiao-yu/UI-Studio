@@ -11,7 +11,7 @@ Author: ZhenXiao (Mark) Yu © 2024
 
 ## Introduction
 
-UI Studio is a sleek, minimalist web-based application optimized for PC use and available at no cost. It is designed to replicate a collaborative user interface design environment, integrating essential features of professional design tools, including **live collaboration, real-time cursor tracking, integrated chat, commenting, and dynamic drawing capabilities**. Built with advanced technologies such as **Next.js, TypeScript, and Fabric.js**, UI Studio offers a powerful platform for delving into the complexities of real-time web applications and collaborative design workflows. Its streamlined interface ensures a fluid, interactive experience, empowering teams to work together efficiently and creatively within a virtual workspace.
+UI Studio is a streamlined, minimalist web-based application tailored for PC users and offered completely free of charge. Designed to emulate a professional collaborative user interface design environment, UI Studio integrates essential features such as live collaboration, real-time cursor tracking, integrated chat, commenting, and dynamic drawing capabilities. Leveraging cutting-edge technologies like Next.js, TypeScript, and Fabric.js, the application provides a robust platform for exploring and mastering real-time web applications and collaborative design processes. With its intuitive, user-friendly interface, UI Studio ensures a seamless and interactive experience, enabling teams to collaborate effectively and creatively in a virtual workspace. Discover how UI Studio can enhance your design workflow and facilitate efficient team collaboration.
 
 ## Tech Stack
 
