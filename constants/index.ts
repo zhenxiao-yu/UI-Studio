@@ -1,5 +1,7 @@
+// Define color constants
 export const COLORS = ["#DC2626", "#D97706", "#059669", "#7C3AED", "#DB2777"];
 
+// Define shape elements with icons, names, and values
 export const shapeElements = [
   {
     icon: "/assets/rectangle.svg",
@@ -33,6 +35,7 @@ export const shapeElements = [
   },
 ];
 
+// Define navigation elements with icons, names, and values
 export const navElements = [
   {
     icon: "/assets/select.svg",
@@ -66,17 +69,20 @@ export const navElements = [
   },
 ];
 
+// Define the default navigation element
 export const defaultNavElement = {
   icon: "/assets/select.svg",
   name: "Select",
   value: "select",
 };
 
+// Define direction options for aligning elements
 export const directionOptions = [
   { label: "Bring to Front", value: "front", icon: "/assets/front.svg" },
   { label: "Send to Back", value: "back", icon: "/assets/back.svg" },
 ];
 
+// Define font family options
 export const fontFamilyOptions = [
   { value: "Helvetica", label: "Helvetica" },
   { value: "Times New Roman", label: "Times New Roman" },
@@ -84,80 +90,32 @@ export const fontFamilyOptions = [
   { value: "Brush Script MT", label: "Brush Script MT" },
 ];
 
+// Define font size options
 export const fontSizeOptions = [
-  {
-    value: "10",
-    label: "10",
-  },
-  {
-    value: "12",
-    label: "12",
-  },
-  {
-    value: "14",
-    label: "14",
-  },
-  {
-    value: "16",
-    label: "16",
-  },
-  {
-    value: "18",
-    label: "18",
-  },
-  {
-    value: "20",
-    label: "20",
-  },
-  {
-    value: "22",
-    label: "22",
-  },
-  {
-    value: "24",
-    label: "24",
-  },
-  {
-    value: "26",
-    label: "26",
-  },
-  {
-    value: "28",
-    label: "28",
-  },
-  {
-    value: "30",
-    label: "30",
-  },
-  {
-    value: "32",
-    label: "32",
-  },
-  {
-    value: "34",
-    label: "34",
-  },
-  {
-    value: "36",
-    label: "36",
-  },
+  { value: "10", label: "10" },
+  { value: "12", label: "12" },
+  { value: "14", label: "14" },
+  { value: "16", label: "16" },
+  { value: "18", label: "18" },
+  { value: "20", label: "20" },
+  { value: "22", label: "22" },
+  { value: "24", label: "24" },
+  { value: "26", label: "26" },
+  { value: "28", label: "28" },
+  { value: "30", label: "30" },
+  { value: "32", label: "32" },
+  { value: "34", label: "34" },
+  { value: "36", label: "36" },
 ];
 
+// Define font weight options
 export const fontWeightOptions = [
-  {
-    value: "400",
-    label: "Normal",
-  },
-  {
-    value: "500",
-    label: "Semibold",
-  },
-  {
-    value: "600",
-    label: "Bold",
-  },
+  { value: "400", label: "Normal" },
+  { value: "500", label: "Semibold" },
+  { value: "600", label: "Bold" },
 ];
 
+// Define alignment options for elements
 export const alignmentOptions = [
   { value: "left", label: "Align Left", icon: "/assets/align-left.svg" },
   {
@@ -175,25 +133,10 @@ export const alignmentOptions = [
   { value: "bottom", label: "Align Bottom", icon: "/assets/align-bottom.svg" },
 ];
 
+// Define keyboard shortcuts for various actions
 export const shortcuts = [
-  {
-    key: "1",
-    name: "Chat",
-    shortcut: "/",
-  },
-  {
-    key: "2",
-    name: "Undo",
-    shortcut: "⌘ + Z",
-  },
-  {
-    key: "3",
-    name: "Redo",
-    shortcut: "⌘ + Y",
-  },
-  {
-    key: "4",
-    name: "Reactions",
-    shortcut: "E",
-  },
+  { key: "1", name: "Chat", shortcut: "/" },
+  { key: "2", name: "Undo", shortcut: "⌘ + Z" },
+  { key: "3", name: "Redo", shortcut: "⌘ + Y" },
+  { key: "4", name: "Reactions", shortcut: "E" },
 ];
