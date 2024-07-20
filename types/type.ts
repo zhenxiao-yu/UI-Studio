@@ -1,6 +1,8 @@
+// Import necessary types and modules from Liveblocks and fabric.js
 import { BaseUserMeta, User } from "@liveblocks/client";
 import { Gradient, Pattern } from "fabric/fabric-impl";
 
+// Enum representing different cursor modes
 export enum CursorMode {
   Hidden,
   Chat,
@@ -8,36 +10,36 @@ export enum CursorMode {
   Reaction,
 }
 
+// Union type representing different states of the cursor
 export type CursorState =
-  | {
-      mode: CursorMode.Hidden;
-    }
+  | { mode: CursorMode.Hidden }
   | {
       mode: CursorMode.Chat;
       message: string;
       previousMessage: string | null;
     }
-  | {
-      mode: CursorMode.ReactionSelector;
-    }
+  | { mode: CursorMode.ReactionSelector }
   | {
       mode: CursorMode.Reaction;
       reaction: string;
       isPressed: boolean;
     };
 
+// Type representing a reaction with its value, timestamp, and coordinates
 export type Reaction = {
   value: string;
   timestamp: number;
   point: { x: number; y: number };
 };
 
+// Type representing a reaction event with its coordinates and value
 export type ReactionEvent = {
   x: number;
   y: number;
   value: string;
 };
 
+// Type representing shape data with various properties
 export type ShapeData = {
   type: string;
   width: number;
@@ -48,6 +50,7 @@ export type ShapeData = {
   objectId: string | undefined;
 };
 
+// Type representing attributes for various elements
 export type Attributes = {
   width: string;
   height: string;
@@ -58,17 +61,20 @@ export type Attributes = {
   stroke: string;
 };
 
+// Type representing an active element, which can be null
 export type ActiveElement = {
   name: string;
   value: string;
   icon: string;
 } | null;
 
+// Interface extending fabric.Object to include an optional objectId
 export interface CustomFabricObject<T extends fabric.Object>
   extends fabric.Object {
   objectId?: string;
 }
 
+// Type representing modification of a shape on the canvas
 export type ModifyShape = {
   canvas: fabric.Canvas;
   property: string;
@@ -77,12 +83,14 @@ export type ModifyShape = {
   syncShapeInStorage: (shape: fabric.Object) => void;
 };
 
+// Type representing direction modification of an element on the canvas
 export type ElementDirection = {
   canvas: fabric.Canvas;
   direction: string;
   syncShapeInStorage: (shape: fabric.Object) => void;
 };
 
+// Type representing image upload details
 export type ImageUpload = {
   file: File;
   canvas: React.MutableRefObject<fabric.Canvas>;
@@ -90,6 +98,7 @@ export type ImageUpload = {
   syncShapeInStorage: (shape: fabric.Object) => void;
 };
 
+// Props for the right sidebar component
 export type RightSidebarProps = {
   elementAttributes: Attributes;
   setElementAttributes: React.Dispatch<React.SetStateAction<Attributes>>;
@@ -99,6 +108,7 @@ export type RightSidebarProps = {
   syncShapeInStorage: (obj: any) => void;
 };
 
+// Props for the navbar component
 export type NavbarProps = {
   activeElement: ActiveElement;
   imageInputRef: React.MutableRefObject<HTMLInputElement | null>;
@@ -106,6 +116,7 @@ export type NavbarProps = {
   handleActiveElement: (element: ActiveElement) => void;
 };
 
+// Props for the shapes menu component
 export type ShapesMenuProps = {
   item: {
     name: string;
@@ -118,12 +129,15 @@ export type ShapesMenuProps = {
   imageInputRef: any;
 };
 
+// Type representing the presence of users
 export type Presence = any;
 
+// Props for the live cursor component
 export type LiveCursorProps = {
   others: readonly User<Presence, BaseUserMeta>[];
 };
 
+// Type for handling mouse down events on the canvas
 export type CanvasMouseDown = {
   options: fabric.IEvent;
   canvas: fabric.Canvas;
@@ -132,6 +146,7 @@ export type CanvasMouseDown = {
   shapeRef: React.MutableRefObject<fabric.Object | null>;
 };
 
+// Type for handling mouse move events on the canvas
 export type CanvasMouseMove = {
   options: fabric.IEvent;
   canvas: fabric.Canvas;
@@ -141,6 +156,7 @@ export type CanvasMouseMove = {
   syncShapeInStorage: (shape: fabric.Object) => void;
 };
 
+// Type for handling mouse up events on the canvas
 export type CanvasMouseUp = {
   canvas: fabric.Canvas;
   isDrawing: React.MutableRefObject<boolean>;
@@ -151,33 +167,39 @@ export type CanvasMouseUp = {
   setActiveElement: any;
 };
 
+// Type for handling object modification events on the canvas
 export type CanvasObjectModified = {
   options: fabric.IEvent;
   syncShapeInStorage: (shape: fabric.Object) => void;
 };
 
+// Type for handling path creation events on the canvas
 export type CanvasPathCreated = {
   options: (fabric.IEvent & { path: CustomFabricObject<fabric.Path> }) | any;
   syncShapeInStorage: (shape: fabric.Object) => void;
 };
 
+// Type for handling selection creation events on the canvas
 export type CanvasSelectionCreated = {
   options: fabric.IEvent;
   isEditingRef: React.MutableRefObject<boolean>;
   setElementAttributes: React.Dispatch<React.SetStateAction<Attributes>>;
 };
 
+// Type for handling object scaling events on the canvas
 export type CanvasObjectScaling = {
   options: fabric.IEvent;
   setElementAttributes: React.Dispatch<React.SetStateAction<Attributes>>;
 };
 
+// Props for rendering the canvas component
 export type RenderCanvas = {
   fabricRef: React.MutableRefObject<fabric.Canvas | null>;
   canvasObjects: any;
   activeObjectRef: any;
 };
 
+// Props for the cursor chat component
 export type CursorChatProps = {
   cursor: { x: number; y: number };
   cursorState: CursorState;
