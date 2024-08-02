@@ -11,16 +11,29 @@ import ShapesMenu from "./ShapesMenu";
 import ActiveUsers from "./users/ActiveUsers";
 import { NewThread } from "./comments/NewThread";
 
-const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveElement }: NavbarProps) => {
+const Navbar = ({
+  activeElement,
+  imageInputRef,
+  handleImageUpload,
+  handleActiveElement,
+}: NavbarProps) => {
   const isActive = (value: string | Array<ActiveElement>) =>
     (activeElement && activeElement.value === value) ||
-    (Array.isArray(value) && value.some((val) => val?.value === activeElement?.value));
+    (Array.isArray(value) &&
+      value.some((val) => val?.value === activeElement?.value));
 
   return (
-    <nav className="flex select-none items-center justify-between gap-4 bg-primary-black px-5 text-white">
-      <Image src="/assets/logo-ui-studio.png" alt="UI STUDIO" width={205} height={20} />
+    <nav className='flex select-none items-center justify-between gap-4 bg-primary-black px-5 py-2 text-white'>
+      <div className='flex items-center'>
+        <Image
+          src='/assets/logo-ui-studio.png'
+          alt='UI STUDIO'
+          width={205}
+          height={20}
+        />
+      </div>
 
-      <ul className="flex flex-row">
+      <ul className='flex flex-row flex-wrap items-center justify-center gap-2'>
         {navElements.map((item: ActiveElement | any) => (
           <li
             key={item.name}
@@ -28,7 +41,7 @@ const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveE
               if (Array.isArray(item.value)) return;
               handleActiveElement(item);
             }}
-            className={`group px-2.5 py-5 flex justify-center items-center
+            className={`group flex items-center justify-center px-2.5 py-2
             ${isActive(item.value) ? "bg-primary-green" : "hover:bg-primary-grey-200"}
             `}
           >
@@ -44,7 +57,7 @@ const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveE
             ) : item?.value === "comments" ? (
               // If value is comments, trigger the NewThread component
               <NewThread>
-                <Button className="relative w-5 h-5 object-contain">
+                <Button className='relative h-5 w-5 object-contain'>
                   <Image
                     src={item.icon}
                     alt={item.name}
@@ -54,7 +67,7 @@ const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveE
                 </Button>
               </NewThread>
             ) : (
-              <Button className="relative w-5 h-5 object-contain">
+              <Button className='relative h-5 w-5 object-contain'>
                 <Image
                   src={item.icon}
                   alt={item.name}
@@ -67,9 +80,14 @@ const Navbar = ({ activeElement, imageInputRef, handleImageUpload, handleActiveE
         ))}
       </ul>
 
-      <ActiveUsers />
+      <div className='hidden sm:block'>
+        <ActiveUsers />
+      </div>
     </nav>
   );
 };
 
-export default memo(Navbar, (prevProps, nextProps) => prevProps.activeElement === nextProps.activeElement);
+export default memo(
+  Navbar,
+  (prevProps, nextProps) => prevProps.activeElement === nextProps.activeElement
+);

@@ -1,15 +1,13 @@
-import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Loader = () => (
-  <div className='flex h-screen w-screen flex-col items-center justify-center gap-2'>
-    <Image
-      src='/assets/loader.gif'
-      alt='loader'
-      width={100}
-      height={100}
-      className='object-contain'
+  <div className='flex h-screen w-screen flex-col items-center justify-center gap-4 bg-gray-900'>
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+      className='border-primary-blue-500 h-20 w-20 rounded-full border-t-4 border-solid'
     />
-    <p className='text-sm font-bold text-primary-grey-300'>Loading...</p>
+    <p className='animate-pulse text-lg font-semibold text-white'>Loading...</p>
   </div>
 );
 
