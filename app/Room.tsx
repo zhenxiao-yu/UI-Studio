@@ -2,14 +2,14 @@
 
 import { LiveMap } from "@liveblocks/client";
 import { ClientSideSuspense } from "@liveblocks/react";
-
+import Loader from "@/components/Loader";
 // import Loader from "@/components/Loader";
 import { RoomProvider } from "../liveblocks.config";
 
 const Room = ({ children }: { children: React.ReactNode }) => {
   return (
     <RoomProvider
-      id="fig-room"
+      id='fig-room'
       /**
        * initialPresence is used to initialize the presence of the current
        * user in the room.
@@ -31,7 +31,7 @@ const Room = ({ children }: { children: React.ReactNode }) => {
         canvasObjects: new LiveMap(),
       }}
     >
-      <ClientSideSuspense fallback={<div>Loading...</div>}>
+      <ClientSideSuspense fallback={<Loader />}>
         {() => children}
       </ClientSideSuspense>
     </RoomProvider>
