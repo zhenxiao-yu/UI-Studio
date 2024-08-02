@@ -6,9 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Room from "./Room";
 
 export const metadata = {
-  title: "Figma Clone",
+  title: "ui studio",
   description:
-    "A minimalist Figma clone using fabric.js and Liveblocks for realtime collaboration",
+    "A minimalist and intuitive UI design web application inspired by Figma, designed to facilitate real-time collaboration and seamless design experiences. Built using Next.js 14, Fabric.js, and Liveblocks, ui-studio empowers designers to create, share, and collaborate on interactive design projects effortlessly.",
 };
 
 const workSans = Work_Sans({

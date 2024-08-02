@@ -10,11 +10,14 @@
 
 /* Define color variables for consistency */
 :root {
-  --primary-green: #10b981; 
-  --primary-black: #1f2937; 
-  --primary-grey-200: #e5e7eb; 
-  --primary-grey-700: #374151; 
-  --primary-blue: #3b82f6; 
+  --primary-green: #34d399; 
+  --primary-black: #111827; 
+  --primary-grey-200: #d1d5db; 
+  --primary-grey-700: #406ba8; 
+  --primary-blue: #60a5fa; 
+  --primary-purple: #a78bfa;
+  --primary-pink: #f472b6;
+  --primary-orange: #fb923c;
 }
 
 @layer utilities {
@@ -35,11 +38,11 @@
   }
 
   .btn-primary {
-    @apply bg-primary-green text-white font-bold py-2 px-4 rounded-md hover:bg-green-600 transition duration-300;
+    @apply bg-primary-green text-white font-bold py-2 px-4 rounded-md hover:bg-green-500 transition duration-300;
   }
 
   .btn-secondary {
-    @apply bg-primary-blue text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300;
+    @apply bg-primary-blue text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300;
   }
 
   .card {
@@ -59,7 +62,7 @@
   }
 
   .custom-bg {
-    @apply bg-gradient-to-r from-green-400 via-blue-500 to-purple-600;
+    @apply bg-gradient-to-r from-primary-green via-primary-blue to-primary-purple;
   }
 
   .container {
@@ -105,5 +108,17 @@
 
   .badge-blue {
     @apply bg-primary-blue;
+  }
+
+  .badge-purple {
+    @apply bg-primary-purple;
+  }
+
+  .badge-pink {
+    @apply bg-primary-pink;
+  }
+
+  .badge-orange {
+    @apply bg-primary-orange;
   }
 }
