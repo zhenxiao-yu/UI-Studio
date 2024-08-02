@@ -13,15 +13,20 @@ type Props = {
   handleInputChange: (property: string, value: string) => void;
 };
 
-const Dimensions = ({ width, height, isEditingRef, handleInputChange }: Props) => (
-  <section className='flex flex-col border-b border-primary-grey-200'>
-    <div className='flex flex-col gap-4 px-6 py-3'>
+const Dimensions = ({
+  width,
+  height,
+  isEditingRef,
+  handleInputChange,
+}: Props) => (
+  <section className='flex flex-col rounded-md border-b border-primary-grey-200 bg-white shadow-sm'>
+    <div className='flex flex-col gap-4 p-4'>
       {dimensionsOptions.map((item) => (
-        <div
-          key={item.label}
-          className='flex flex-1 items-center gap-3 rounded-sm'
-        >
-          <Label htmlFor={item.property} className='text-[10px] font-bold'>
+        <div key={item.label} className='flex items-center gap-3'>
+          <Label
+            htmlFor={item.property}
+            className='text-xs font-bold text-gray-600'
+          >
             {item.label}
           </Label>
           <Input
@@ -29,11 +34,11 @@ const Dimensions = ({ width, height, isEditingRef, handleInputChange }: Props) =
             id={item.property}
             placeholder='100'
             value={item.property === "width" ? width : height}
-            className='input-ring'
+            className='w-full rounded-md border border-primary-grey-300 px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary-green'
             min={10}
             onChange={(e) => handleInputChange(item.property, e.target.value)}
-            onBlur={(e) => {
-              isEditingRef.current = false
+            onBlur={() => {
+              isEditingRef.current = false;
             }}
           />
         </div>
