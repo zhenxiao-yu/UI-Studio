@@ -24,13 +24,17 @@ const config = {
     extend: {
       colors: {
         primary: {
-          black: "#14181F",
-          green: "#56FFA6",
+          black: "#010101",
+          green: "#ffe000", // updated to match button green
           grey: {
-            100: "#2B303B",
-            200: "#202731",
-            300: "#C4D3ED",
+            100: "#848484",
+            200: "#a6a6a6", // updated to match grey-700 in the previous style
+            300: "#ffffff", // updated to match grey-200 in the previous style
           },
+          blue: "#60a5fa", // updated to match button blue
+          purple: "#a78bfa", // added to match button purple
+          pink: "#f472b6", // added to match button pink
+          orange: "#fb923c", // added to match button orange
         },
       },
       keyframes: {
