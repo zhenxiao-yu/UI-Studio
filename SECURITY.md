@@ -1,36 +1,16 @@
 # Security Policy
 
-## Supported Versions
-
-| Version | Supported |
-|---|---|
-| Latest on `main` | Yes |
-| Older tagged releases | Best effort |
-
 ## Reporting a Vulnerability
 
-Please do **not** open a public GitHub issue for security vulnerabilities.
+Please report security vulnerabilities **privately** rather than opening a
+public issue:
 
-Report vulnerabilities privately by email to **markyu0615@gmail.com** with:
-- a description of the issue and impact
-- reproduction steps or proof of concept
-- any suggested fix if available
+- Open a private report via
+  [GitHub Security Advisories](../../security/advisories/new).
 
-You should receive an acknowledgement within 72 hours for valid reports.
+Include steps to reproduce, the impact, and the affected commit or version.
+I aim to acknowledge reports within 7 days and will keep you updated on the fix.
 
-## Scope
+## Supported Versions
 
-This app centers on shared-room collaboration and canvas editing. The most relevant areas are:
-- room-link access and unintended exposure of shared content
-- unsafe handling of uploaded images or imported content
-- client-side injection or rendering issues in collaborative UI
-- accidental exposure of Liveblocks credentials or project configuration
-
-## Out of Scope
-
-- security issues in third-party hosting or Liveblocks infrastructure itself
-- vulnerabilities requiring direct access to a user's local machine
-
-## Disclosure Guidance
-
-Please allow time for investigation and remediation before public disclosure. Confirmed fixes should be reflected in release notes and the changelog when appropriate.
+This is a personal project; security fixes are applied to the latest `main`.

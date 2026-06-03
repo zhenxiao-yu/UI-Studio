@@ -331,4 +331,4 @@ Built on the Liveblocks, Fabric.js, and Next.js ecosystems.
 
 ## License
 
-[MIT](./LICENSE) © Mark Yu (ZhenXiao Yu)
+Released under the [MIT License](LICENSE).
